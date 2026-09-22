@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environments and editors
+.venv/
+venv/
+.env
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Local data, models, and generated outputs
+data/raw/
+data/processed/
+datasets/
+checkpoints/
+models/
+outputs/
+runs/
+*.pkl
+*.pickle
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.log
+
+# Build artifacts
+build/
+dist/

@@ -1,0 +1,24 @@
+{
+  "forecast": {
+    "input_length": 75,
+    "prediction_horizon": 15,
+    "quantiles": [0.1, 0.2, 0.3, 0.4]
+  },
+  "split_fractions": [0.55, 0.15, 0.15, 0.15],
+  "test_stream": {
+    "initialization_fraction": 0.4,
+    "validation_end_fraction": 0.6
+  },
+  "risk_budgets": [0.25, 0.3, 0.35, 0.4],
+  "dlacer": {
+    "learning_rate": 2.0,
+    "target_margin": 0.02,
+    "correction_min": -200.0,
+    "correction_max": 300.0
+  },
+  "dataset_stride": {
+    "chi": 46,
+    "osn": 29,
+    "vic": 6
+  }
+}

@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use D-LACER, please cite our paper."
+title: "D-LACER"
+type: software
+version: 0.1.0
+url: "https://github.com/luopeng69131/D-LACER"
+license: MIT
+authors:
+  - family-names: Xie
+    given-names: Hongjun
+  - family-names: Zhang
+    given-names: Chao
+  - family-names: Luo
+    given-names: Pengcheng
+  - family-names: Zhang
+    given-names: Zenghui
+  - family-names: Yang
+    given-names: Genke
+  - family-names: Zhang
+    given-names: Xiaojuan
+preferred-citation:
+  type: article
+  title: "Risk-Aware Safe Throughput Forecasting for Starlink Networks"
+  authors:
+    - family-names: Xie
+      given-names: Hongjun
+    - family-names: Zhang
+      given-names: Chao
+    - family-names: Luo
+      given-names: Pengcheng
+    - family-names: Zhang
+      given-names: Zenghui
+    - family-names: Yang
+      given-names: Genke
+    - family-names: Zhang
+      given-names: Xiaojuan
+  journal: "arXiv preprint arXiv:2605.09508"
+  year: 2026
+  url: "https://arxiv.org/abs/2605.09508"
