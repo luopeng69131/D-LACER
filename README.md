@@ -12,12 +12,6 @@
 
 ## Overview
 
-Starlink throughput can change rapidly across network states and forecast
-horizons. A predictor may satisfy an average overestimation budget while still
-producing concentrated violations in low-capacity periods, uncertain windows,
-or distant horizons. These failures are especially challenging in multi-step
-forecasting, where complete outcomes become available only after a delay.
-
 **D-LACER** is a backbone-agnostic safety layer for multi-step throughput
 forecasting. It discovers latent capacity states from information available at
 forecast time, represents safety requirements through overlapping conditional
@@ -29,13 +23,43 @@ Across three public Starlink traces and four risk budgets, D-LACER achieves
 **12/12 all-group compliance**, compared with **5/12** for the strongest online
 baseline in the study, while retaining comparable forecasting accuracy.
 
+## Background and Motivation
+
+Starlink connects user terminals through rapidly moving low-Earth-orbit
+satellites. Satellite motion, handovers, link geometry, traffic load, and
+environmental conditions jointly produce large short-term capacity variations.
+Accurate throughput forecasts are therefore valuable to admission control,
+adaptive streaming, congestion control, and bandwidth reservation.
+
+Conventional point predictors are commonly optimized with symmetric errors
+such as MAE or RMSE. In network operation, however, the two error directions
+have different consequences. **Overestimating** available throughput can cause
+resource over-admission, packet loss, and service violations, whereas
+**underestimating** it produces a conservative allocation with lower
+utilization. Safe forecasting should therefore preserve useful accuracy while
+keeping the frequency of harmful overestimation within an application-defined
+risk budget.
+
+An average, or marginal, risk budget is still incomplete. Violations can remain
+concentrated in latent low-capacity states, high-disagreement windows, or distant
+forecast horizons even when the aggregate budget is met. Moreover, a 15-step
+forecast receives its complete supervision only after the future window has
+elapsed. The resulting problem is **conditional risk control over overlapping
+groups under delayed feedback**, which motivates D-LACER.
+
+<p align="center">
+  <img src="assets/research_background.png" width="96%" alt="Starlink throughput forecasting background and asymmetric risk">
+</p>
+
+<p align="center"><em>Starlink mobility creates volatile throughput, while the asymmetric cost of forecasting errors calls for risk-budgeted safe prediction.</em></p>
+
+## Method
+
 <p align="center">
   <img src="assets/method_overview.png" width="96%" alt="D-LACER framework">
 </p>
 
 <p align="center"><em>D-LACER routes each forecast into overlapping issue-time risk groups and updates their safety corrections after delayed feedback arrives.</em></p>
-
-## Method
 
 D-LACER turns an existing multi-step predictor into a conditionally safe
 forecasting system through four components:
